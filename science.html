@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" href="css/js.css">
+		<title></title>
+		<script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/scroll.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+		<script type="text/javascript">
+	// 设置为主页   
+	function SetHome(obj, vrl) {
+		try {
+			obj.style.behavior = 'url(#default#homepage)';
+			obj.setHomePage(vrl);
+		} catch(e) {
+			if(window.netscape) {
+					alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+				var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+				prefs.setCharPref('browser.startup.homepage', vrl);
+			} else {
+				alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入：" + vrl + "点击确定。");
+			}
+		}
+	}
+	// 加入收藏 兼容360和IE6   
+	function shoucang(sTitle, sURL) {
+		try {
+			window.external.addFavorite(sURL, sTitle);
+		} catch(e) {
+			try {
+				window.sidebar.addPanel(sTitle, sURL, "");
+			} catch(e) {
+				alert("加入收藏失败，请使用Ctrl+D进行添加");
+			}
+		}
+	}
+</script>
+<script>
+$(function(){
+	$('.myscroll').myScroll({
+		speed: 40, //数值越大，速度越慢
+		rowHeight: 120 //li的高度
+	});
+});
+</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=1" width="960" height="20" frameborder="1" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+				<div class="subnav">
+					<div class="left">www.zszx.com</div>
+					<div class="right">
+						<a href="javascript:void(0)" onclick="SetHome(this,window.location)">设为首页</a>  
+                        <a href="javascript:void(0)" onclick="shoucang(document.title,window.location)">加入收藏</a>  
+					</div>
+				</div>
+				<img src="img/headerimg.png" />
+			</div>
+			<div id="nav">
+				<ul>
+					<li><a href="index.html">首&nbsp;页</a></li>
+					<li><a href="school.html">学校概况</a></li>
+					<li><a href="guide.html">招生就业</a></li>
+					<li><a href="teach.html">教育园地</a></li>
+					<li><a href="science.html" class="active">科教园</a></li>
+					<li><a href="library.html">图书馆</a></li>
+					<li><a href="#">校园文化</a></li>
+					<li><a href="#">对外培训</a></li>
+					<li><a href="#">党群活动</a></li>
+				</ul>
+				<input type="text" value="搜索你想要的..." onfocus="if(value=='搜索你想要的...') {value=''}" onblur="if (value=='') {value='搜索你想要的...'}">
+                <select >
+                	<option value="1">培训</option>
+                	<option value="1">教学</option>
+                </select>
+                <button type="button">搜索</button>
+			</div>
+<div id="main">
+	<div class="menu">
+		<div class="menu-title">
+			<h2>科教园</h2>
+		</div>
+		<div class="menu-ul">
+			<ul>
+				<li>
+					<a href="#" class="menu-a-active">了解科学</a>
+				</li>
+				<li>
+					<a href="#">论文著作</a>
+				</li>
+				<li>
+					<a href="#">科研项目</a>
+				</li>
+				<li>
+					<a href="#">科研获奖</a>
+				</li>
+			</ul>
+		</div>
+		<div class="myscroll">
+	                    <ul>
+		                    <li><a href="#68.html"><img src="img/award-1.jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/award-2.jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/award-3.jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/award-4.jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/award-2.jpg" alt=""></a></li>
+	                    </ul>
+		</div>
+	</div>
+	<div class="content">
+		<div class="content-title">
+			<h2>科教园</h2>
+			<span class="right">当前位置：科教园-了解科学</span>
+		</div>
+		<video width="495px" height="240px" controls>
+			<source src="video/video.mp4" type="video/mp4">
+		</video>
+		<div class="science">
+			<h2>部门介绍：</h2>
+			<div class="science-p">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校的科研组织规范，机构完整。目前学校成立了以校长和书记亲自挂帅的学校科研工作领导小组，并由李敏捷校长直接负责学校的科研工作，并设立独立的教科研室，统一管理各个校区教育教学科研工作。教科研室设主任、副主任各1人，专任科研管理的职员3人。学校科研管理人员包括：海淀区科研带头人1人,海淀区教学管理带头人1人,海淀区学科带头人1人 。</p>
+				<img src="img/science-1.jpg" />
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校大力支持教职员工结合自己的工作实践，开展教育科学的研究，并在每年的经费预算中专门划拨专项的科研经费，支持立项课题的研究。学校还针对全体教师的实际情况，依据“走出去，请进来”的原则，有计划地开展多种形式的科研培养，连续三年用于教师科研能力培养的专项经费占教职员工的工资总额的2.3%、2.5%、2.7%，逐年递增。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校针对多校区合并的特点，结合原有几所科研传统强校的经验，制定完善了《北京市信息管理学校的科研管理制度》、《学校立项科研课题的管理办法》、《学校科研培训的管理规定》、《学校科研先进的评审办法》、《学校科研成果评审验收标准》等一系列规章制度，并定期召开科研年会，对科研先进、优秀科研成果、优秀科研课题等及时进行表彰奖励。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;近年来，先后获得北京市科研先进单位，海淀区科研先进学校，北京市职教学会立项课题管理优秀学校、海淀区“十二五”科研课题中期验收优秀单位等荣誉。</p>
+			</div>
+		</div>
+	</div>
+</div>
+			<div class="clear"></div>
+			<div id="copyright">
+				<ul>
+					<li>
+						<p>版权所有：北京信息管理学校&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通讯地址：海淀区西三环北路20号（紫竹桥桥北路东一招生办公室所在地）</p>
+					</li>
+					<li>
+						<p>邮政编码：100081&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：010-64239088 010-78234123</p>
+					</li>
+					<li>
+						<p>邮箱：zszx@qq.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京ICP备05021359号</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

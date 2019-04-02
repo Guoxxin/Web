@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<title></title>
+<script type="text/javascript">
+	// 设置为主页   
+	function SetHome(obj, vrl) {
+		try {
+			obj.style.behavior = 'url(#default#homepage)';
+			obj.setHomePage(vrl);
+		} catch(e) {
+			if(window.netscape) {
+					alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+				var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+				prefs.setCharPref('browser.startup.homepage', vrl);
+			} else {
+				alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入：" + vrl + "点击确定。");
+			}
+		}
+	}
+	// 加入收藏 兼容360和IE6   
+	function shoucang(sTitle, sURL) {
+		try {
+			window.external.addFavorite(sURL, sTitle);
+		} catch(e) {
+			try {
+				window.sidebar.addPanel(sTitle, sURL, "");
+			} catch(e) {
+				alert("加入收藏失败，请使用Ctrl+D进行添加");
+			}
+		}
+	}
+</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=1" width="960" height="20" frameborder="1" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+				<div class="subnav">
+					<div class="left">www.zszx.com</div>
+					<div class="right">
+						<a href="javascript:void(0)" onclick="SetHome(this,window.location)">设为首页</a>  
+                        <a href="javascript:void(0)" onclick="shoucang(document.title,window.location)">加入收藏</a>  
+					</div>
+				</div>
+				<img src="img/headerimg.png" />
+			</div>
+			<div id="nav">
+				<ul>
+					<li><a href="index.html" class="active">首&nbsp;页</a></li>
+					<li><a href="school.html">学校概况</a></li>
+					<li><a href="guide.html">招生就业</a></li>
+					<li><a href="teach.html">教育园地</a></li>
+					<li><a href="science.html">科教园</a></li>
+					<li><a href="library.html">图书馆</a></li>
+					<li><a href="#">校园文化</a></li>
+					<li><a href="#">对外培训</a></li>
+					<li><a href="#">党群活动</a></li>
+				</ul>
+				<input type="text" value="搜索你想要的..." onfocus="if(value=='搜索你想要的...') {value=''}" onblur="if (value=='') {value='搜索你想要的...'}">
+                <select>
+                	<option value="1">培训</option>
+                	<option value="1">教学</option>
+                </select>
+                <button type="button" >搜索</button>
+			</div>
+			
+			<div id="sidebar">
+				<div id="login">
+					<div class="title">
+						<h3>登录</h3>
+					</div>
+					<div class="box">
+						<div class="bon">
+							<ul class="left">
+							<li>学号：
+								<input type="text" value="请输入学号" onfocus="if(value=='请输入学号') {value=''}" onblur="if (value=='') {value='请输入学号'}">
+							</li>
+							<li>密码：
+								<input type="text" value="请输入密码" onfocus="if(value=='请输入密码') {value=''}" onblur="if (value=='') {value='请输入密码'}">
+							</li>
+						</ul>
+						<button>登录</button>
+						</div>
+						<div class="lable">
+							<label><input type="checkbox">下次自动登录
+						</div>
+						<div style="margin: 15px auto;">
+							<a href="#">我要注册>></a>
+						    <a href="#">忘记密码>></a>
+						</div>
+					</div>
+				</div>
+				<div id="major">
+					<div class="title">
+						<h3>专业设置</h3>
+						<img src="img/more.png" />
+						<a href="#">more</a>
+					</div>
+					<div class="box">
+						<ul>
+								<li>
+									<a href="#">
+										<p>简易简明不简单揭秘特色</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<p>活动强调突出一条主线，即“学习贯彻习近平新时代中国特色社会主义思想，按照新时代党的建设总要求，推动基层党组织建设全面进步、全面过硬</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<p>3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<p>简易简明不简单揭秘特色</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<p>4月3日，美国制造工程师学会(Society of Manufacturing Engineers, SME)公布了2018年“杰出青年制造工程师奖”(Outstanding Young Manufacturing Engineers)获奖名单。</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<p>再过一个月，清华就将迎来建校107周年。在3月29日召开的第25次教育工作讨论会开幕式上，校长邱...</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<p>“当选院士只是对我过去所做工作的一种肯定，我感到非常荣幸。接下来，还有更多的工作要做。”</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+									<p>阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a></li>
+							</ul>
+					</div>
+				</div>
+				<div id="interact">
+					<div class="title">
+						<h3>互动专区</h3>
+						<img src="img/more.png" />
+						<a href="#">more</a>
+					</div>
+					<div class="box">
+						<p>面对新课程改制，加强老师心理素养，你的观点是：</p>
+							<ul>
+								<li>
+									<input type="checkbox" />1.的确如此，非常有必要
+								</li>
+								<li>
+									<input type="checkbox" />2.应该适当进行加强
+								</li>
+								<li>
+									<input type="checkbox" />3.可有可无，并不重要
+								</li>
+								<li>
+									<input type="checkbox" />4.现在根本不用加强
+								</li>
+							</ul>
+							<button>提交</button>
+							<button>查看</button>
+					</div>
+				</div>
+				<div id="list">
+					<img src="img/book.gif" />
+					<div class="p">
+						<i>学习资源</i>
+						<div class="right" style="font-size: 8px; ">LEARNING</div>
+					</div>
+				</div>
+				<div id="list">
+					<img src="img/pen.gif" />
+					<div class="p">
+						<i>教学资源</i>
+						<div class="right" style="font-size: 8px; ">TEACHING</div>
+					</div>
+				</div>
+				<div id="list">
+					<img src="img/pur.gif" />
+					<div class="p">
+						<i>校内办公</i>
+						<div class="right" style="font-size: 8px; ">OFFICE</div>
+					</div>
+				</div>
+				<div id="list">
+					<img src="img/blue.gif" />
+					<div class="p">
+						<i>网上书店</i>
+						<div class="right" style="font-size: 8px; ">ONLINGSHOP</div>
+					</div>
+				</div>
+			</div>
+			<div id="content">
+				<div id="news">
+					<div id="title" style="width: 480px;">
+						<h3>学校新闻<span>News</span></h3><a href="#">更多</a>
+					</div>
+					<ul>
+						<li>
+							<a href="#"><p>3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p>阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p>3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p>阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p>3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p>阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a><span class="date">2018-01-01</span>
+						</li>
+					</ul>
+				</div>
+				<div id="notice">
+					<div class="title">
+						<h3>互动专区</h3>
+						<img src="img/more.png" />
+						<a href="#">more</a>
+					</div>
+					<div class="box">
+						<ul style="margin-top: 0px;">
+						<li>
+							<a href="#"><p style="width: 140px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a>
+						</li>
+						<li>
+							<a href="#"><p style="width: 140px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a>
+						</li>
+						<li>
+							<a href="#"><p style="width: 140px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a>
+						</li>
+						<li>
+							<a href="#"><p style="width: 140px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a>
+						</li>
+						<li>
+							<a href="#"><p style="width: 140px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a>
+						</li>
+					</ul>
+					</div>
+				</div>
+				<div id="school">
+					<div id="title" style="width: 350px;">
+						<h3>学校概况<span>School</span></h3><a href="#">更多</a>
+					</div>
+					<div id="tuwen">
+						<img src="img/timg (2).jpg" />
+						<p>&nbsp;&nbsp;无锡科技职业学院坐落于江苏省无锡市国家高新区，创办于2003年，是经国家教育部备案、江苏省人民政府批准，由无锡市人民政府主办、无锡市人民政府新区管理委员会承办的公办全日制普通高等职业技术学院。</p>
+					</div>
+				</div>
+				<div id="headman">
+					<div id="title" style="width: 350px;">
+						<h3>校长寄语<span>headman</span></h3><a href="#">更多</a>
+					</div>
+					<div id="tuwen">
+						<img src="img/timg (6).jpg" />
+						<p>&nbsp;&nbsp;这里是爱的家园——我们共同快乐地成长；这里是起飞的跑道——展开翅膀自由飞翔；这里是完美个性的天堂——播种希望，创造未来这里是圆梦的场所——成功从这里起步。Here is a school full of love...</p>
+					</div>
+				</div>
+				<div id="teachers">
+					<img src="img/timg (7).png" style="margin: 25px 0px 0px 100px; border-radius: 8px;"/>
+					<div class="a"><a href="#">周学明</a></div>
+				</div>
+				<div id="students">
+					<img src="img/timg (7).png" style="margin: 25px 0px 0px 100px; border-radius: 8px;"/>
+					<div class="a"><a href="#">周学明</a></div>
+				</div>
+				<div id="research">
+					<div id="title" style="width: 350px;">
+						<h3>教研动态<span>research</span></h3><a href="#">更多</a>
+					</div>
+					<ul>
+						<li>
+							<a href="#"><p style="width: 200px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p></a><span class="date">2018-01-01</span>
+						</li>
+					</ul>
+				</div>
+				<div id="guide">
+
+					<div id="title" style="width: 350px;">
+						<h3>招生就业<span>guide</span></h3><a href="#">更多</a>
+					</div>
+					<ul>
+						<li>
+							<a href="#"><p style="width: 200px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">阳春三月，在清华第六教学楼为管理学双学位的本科生上完一节“创业领导力”课程后，徐中博士充分感受到...</p></a><span class="date">2018-01-01</span>
+						</li>
+						<li>
+							<a href="#"><p style="width: 200px;">3月30日上午，校长邱勇在工字厅东厅与10位来自不同大类的大一学生围坐在一起</p></a><span class="date">2018-01-01</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="footer">
+				<div class="footer">
+					<div><img src="img/timg (2).jpg" /></div>
+					<div class="a1"><a href="#">教学楼</a></div>
+				</div>
+				<div class="footer">
+					<div><img src="img/timg (2).jpg" /></div>
+					<div class="a1"><a href="#">教学楼</a></div>
+				</div>
+				<div class="footer">
+					<div><img src="img/timg (2).jpg" /></div>
+					<div class="a1"><a href="#">教学楼</a></div>
+				</div>
+				<div class="footer">
+					<div><img src="img/timg (2).jpg" /></div>
+					<div class="a1"><a href="#">教学楼</a></div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div id="copyright">
+				<ul>
+					<li>
+						<p>版权所有：北京信息管理学校&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通讯地址：海淀区西三环北路20号（紫竹桥桥北路东一招生办公室所在地）</p>
+					</li>
+					<li>
+						<p>邮政编码：100081&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：010-64239088 010-78234123</p>
+					</li>
+					<li>
+						<p>邮箱：zszx@qq.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京ICP备05021359号</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

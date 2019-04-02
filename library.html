@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<title></title>
+		<script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/scroll.js"></script>
+		<script type="text/javascript">
+	// 设置为主页   
+	function SetHome(obj, vrl) {
+		try {
+			obj.style.behavior = 'url(#default#homepage)';
+			obj.setHomePage(vrl);
+		} catch(e) {
+			if(window.netscape) {
+					alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+				var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+				prefs.setCharPref('browser.startup.homepage', vrl);
+			} else {
+				alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入：" + vrl + "点击确定。");
+			}
+		}
+	}
+	// 加入收藏 兼容360和IE6   
+	function shoucang(sTitle, sURL) {
+		try {
+			window.external.addFavorite(sURL, sTitle);
+		} catch(e) {
+			try {
+				window.sidebar.addPanel(sTitle, sURL, "");
+			} catch(e) {
+				alert("加入收藏失败，请使用Ctrl+D进行添加");
+			}
+		}
+	}
+</script>
+<script>
+$(function(){
+	$('.myscroll').myScroll({
+		speed: 40, //数值越大，速度越慢
+		rowHeight: 120 //li的高度
+	});
+});
+</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=1" width="960" height="20" frameborder="1" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+				<div class="subnav">
+					<div class="left">www.zszx.com</div>
+					<div class="right">
+						<a href="javascript:void(0)" onclick="SetHome(this,window.location)">设为首页</a>  
+                        <a href="javascript:void(0)" onclick="shoucang(document.title,window.location)">加入收藏</a>  
+					</div>
+				</div>
+				<img src="img/headerimg.png" />
+			</div>
+			<div id="nav">
+				<ul>
+					<li><a href="index.html">首&nbsp;页</a></li>
+					<li><a href="school.html">学校概况</a></li>
+					<li><a href="guide.html">招生就业</a></li>
+					<li><a href="teach.html">教育园地</a></li>
+					<li><a href="science.html">科教园</a></li>
+					<li><a href="library.html"  class="active">图书馆</a></li>
+					<li><a href="#">校园文化</a></li>
+					<li><a href="#">对外培训</a></li>
+					<li><a href="#">党群活动</a></li>
+				</ul>
+				<input type="text" value="搜索你想要的..." onfocus="if(value=='搜索你想要的...') {value=''}" onblur="if (value=='') {value='搜索你想要的...'}">
+                <select >
+                	<option value="1">培训</option>
+                	<option value="1">教学</option>
+                </select>
+                <button type="button">搜索</button>
+			</div>
+			<div id="main">
+				<div class="menu">
+					<div class="menu-title">
+						<h2>图书馆</h2>
+					</div>
+					<div class="menu-ul">
+						<ul>
+						<li><a href="#" class="menu-a-active">图书检索</a></li>
+						<li><a href="#">图书借阅</a></li>
+						<li><a href="#">注册账户</a></li>
+					</ul>
+					</div>
+					<div class="myscroll">
+	                    <ul>
+		                    <li><a href="#68.html"><img src="img/book-2.jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/book-3.jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/book.png" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/book-2.jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/book-3.jpg" alt=""></a></li>
+	                    </ul>
+				    </div>
+				</div>
+				<div class="content">
+					<div class="content-title">
+						<h2>图书检索</h2>
+						<span class="right">当前位置：图书检索-图书检索</span>
+					</div>
+					<div class="book-search">
+						<div class="book">
+							<img src="img/book.png" />
+							<div class="book-a"><a href="#">西游记</a></div>
+						</div>
+						<div class="book">
+							<img src="img/book.png" />
+							<div class="book-a"><a href="#">西游记</a></div>
+						</div>
+						<div class="book">
+							<img src="img/book.png" />
+							<div class="book-a"><a href="#">西游记</a></div>
+						</div>
+						<div class="book">
+							<img src="img/book.png" />
+							<div class="book-a"><a href="#">西游记</a></div>
+						</div>
+						<div class="book">
+							<img src="img/book.png" />
+							<div class="book-a"><a href="#">西游记</a></div>
+						</div>
+						<input type="text" value="搜索你想要的..." onfocus="if(value=='搜索你想要的...') {value=''}" onblur="if (value=='') {value='搜索你想要的...'}">
+						<button type="button">搜索</button>
+						<div class="ul left ">
+							<div class="title">
+						        <h3>用户导航</h3>
+					        </div>
+					        <div class="box">
+					    	    <ul><li><a href="#">我的图书馆</a></li>
+					    	    <li><a href="#">新生</a></li>
+					    	    <li><a href="#">校外读者</a></li>
+					    	    <li><a href="#">教师</a></li>
+					    	    <li><a href="#">规章制度</a></li>
+					    	    <li><a href="#">注意事项</a></li>
+					    	    </ul>
+						    </div>
+						</div>
+						<div class="ul left">
+							<div class="title">
+						        <h3>资源查找</h3>
+					        </div>
+					        <div class="box">
+					    	<ul><li><a href="#">学科资源导航</a></li>
+					    	    <li><a href="#">馆藏书刊查询</a></li>
+					    	    <li><a href="#">数据库导航</a></li>
+					    	    <li><a href="#">期刊导航</a></li>
+					    	    <li><a href="#">古籍</a></li>
+					    	     <li><a href="#">随书光盘</a></li>
+					    	     </ul>
+						    </div>
+						</div>
+						<div class="left ul">
+							<div class="title">
+						        <h3>读者服务</h3>
+					        </div>
+					        <div class="box">
+					    	<ul><li><a href="#">图书借阅</a></li>
+					    	    <li><a href="#">科技查新</a></li>
+					    	    <li><a href="#">文献传递</a></li>
+					    	    <li><a href="#">论文提交</a></li>
+					    	    <li><a href="#">咨询服务</a></li>
+					    	<li><a href="#">书刊捐赠</a></li>
+					    	</ul>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div id="copyright">
+				<ul>
+					<li>
+						<p>版权所有：北京信息管理学校&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通讯地址：海淀区西三环北路20号（紫竹桥桥北路东一招生办公室所在地）</p>
+					</li>
+					<li>
+						<p>邮政编码：100081&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：010-64239088 010-78234123</p>
+					</li>
+					<li>
+						<p>邮箱：zszx@qq.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京ICP备05021359号</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

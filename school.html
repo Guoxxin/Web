@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<title></title>
+		<script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/scroll.js"></script>
+		<script type="text/javascript">
+	// 设置为主页   
+	function SetHome(obj, vrl) {
+		try {
+			obj.style.behavior = 'url(#default#homepage)';
+			obj.setHomePage(vrl);
+		} catch(e) {
+			if(window.netscape) {
+					alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+				var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+				prefs.setCharPref('browser.startup.homepage', vrl);
+			} else {
+				alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入：" + vrl + "点击确定。");
+			}
+		}
+	}
+	// 加入收藏 兼容360和IE6   
+	function shoucang(sTitle, sURL) {
+		try {
+			window.external.addFavorite(sURL, sTitle);
+		} catch(e) {
+			try {
+				window.sidebar.addPanel(sTitle, sURL, "");
+			} catch(e) {
+				alert("加入收藏失败，请使用Ctrl+D进行添加");
+			}
+		}
+	}
+</script>
+
+<script>
+$(function(){
+	$('.myscroll').myScroll({
+		speed: 40, //数值越大，速度越慢
+		rowHeight: 120 //li的高度
+	});
+});
+</script>
+	</head>
+	<div id="container">
+			<div id="header">
+				<iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=1" width="960" height="20" frameborder="1" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+				<div class="subnav">
+					<div class="left">www.zszx.com</div>
+					<div class="right">
+						<a href="javascript:void(0)" onclick="SetHome(this,window.location)">设为首页</a>  
+                        <a href="javascript:void(0)" onclick="shoucang(document.title,window.location)">加入收藏</a>  
+					</div>
+				</div>
+				<img src="img/headerimg.png" />
+			</div>
+			<div id="nav">
+				<ul>
+					<li><a href="index.html">首&nbsp;页</a></li>
+					<li><a href="school.html" class="active">学校概况</a></li>
+					<li><a href="guide.html">招生就业</a></li>
+					<li><a href="teach.html">教育园地</a></li>
+					<li><a href="science.html">科教园</a></li>
+					<li><a href="library.html">图书馆</a></li>
+					<li><a href="#">校园文化</a></li>
+					<li><a href="#">对外培训</a></li>
+					<li><a href="#">党群活动</a></li>
+				</ul>
+				<input type="text" value="搜索你想要的..." onfocus="if(value=='搜索你想要的...') {value=''}" onblur="if (value=='') {value='搜索你想要的...'}">
+                <select >
+                	<option value="1">培训</option>
+                	<option value="1">教学</option>
+                </select>
+                <button type="button">搜索</button>
+			</div>
+			<div id="main">
+				<div class="menu">
+					<div class="menu-title">
+						<h2>学校概况</h2>
+					</div>
+					<div class="menu-ul">
+						<ul>
+						   <li><a href="#" class="menu-a-active">学校简介</a></li>
+						   <li><a href="#">学校历史</a></li>
+						   <li><a href="#">现任领导</a></li>
+						   <li><a href="#">校园风景</a></li>
+					    </ul>
+					</div>
+					<div class="myscroll">
+	                    <ul>
+		                    <li><a href="#68.html"><img src="img/timg (2).jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/timg (2).jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/timg (2).jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/timg (2).jpg" alt=""></a></li>
+		                    <li><a href="#68.html"><img src="img/timg (2).jpg" alt=""></a></li>
+	                    </ul>
+				    </div>
+                </div>
+				<div class="content">
+					<div class="content-title">
+						<h2>学校简介</h2>
+						<span class="right">当前位置：学校概况-学校简介</span>
+					</div>
+					<div>
+						<p style="text-align: center; margin-top: 25px;">北京信息管理学校</p>
+						<br />
+						<p style="margin: 10px 69px; ">&nbsp;&nbsp;&nbsp;&nbsp;北京市信息管理学校[1] 是一所以信息技术、IT行业为主要发展方向的国家级重点职业学校，位于海淀区中关村高科技园区的腹地。学校周边地区知识密集、资源雄厚，园区内有著名的高等学府、科研院所，高新技术企业林立。根据中等职业学校布局调整，学校目前一校三址，分布在海淀区的中北部、中部和西部。从80年开始创办职业高中以来，凭借中关村的独特优势，凭借信息人的不懈努力,学校规模不断扩大,教学质量不断提高，成为全国职业教育的名牌校。</p>
+						<p style="margin: 10px 69px; ">&nbsp;&nbsp;&nbsp;&nbsp;学校是教育部计算机等级考试培训点、考试点，劳动部计算机高新技术特许授权考试点，教育部信息中心“信息技术与应用远程培训点”，北京市职业高中计算机专业教师研修中心,教育部健康教育试点校。创办职教31年来，学校一直是市区先进单位，北京市的对外窗口校。</p>
+						<p style="margin: 10px 69px; ">&nbsp;&nbsp;&nbsp;&nbsp;学校坚持“专业设置与社会需求同步，课程开设与科技发展同步，教学设备与硬件换代同步，运行机制与市场变化同步”的办学宗旨。学校有一流的设备和师资，严格的管理，优良的校风，良好的学习环境。1999年和2003年又以优异成绩通过北京市对国家级重点职业学校的重新评审。2002年计算机及应用专业被北京市教委认定为现代化标志专业，该专业还被教育部认定为国家级示范专业。为满足学生和家长的不同要求，学校提出并实现了“就业有路，升学有望”的办学目标。我们的目标是培养有社会主义理想、懂专业技术理论，熟练掌握生产技能的新世纪的信息人。</p>
+						<img src="img/timg (2).jpg" width="250px" height="150px" style="margin: 10px 247px;"/>
+						<p style="margin: 10px 69px; ">&nbsp;&nbsp;&nbsp;&nbsp;学校具有较强的教育科研能力，是全国及北京市职成教系统和海淀区教育系统科教研工作先进单位。教学成果连连在市区获奖。教师自编校本教材14本，其中3本由出版社正式出版发行。多本教材获市级一、二等奖。学生在市区及全国各种专业技术竞赛中均获的好成绩,如在2001年”神州数码杯”计算机比赛中获得一等奖；在2002年全国中等学校计算机技能大赛中获得一等奖；在汉字输入比赛、珠算比赛、点钞比赛中获得全市冠军和团体第一；2004年在海淀区主题网页设计大赛中，获得了唯一的一个一等奖；在北京市职业教育技能竞赛计算机网络管理员比赛中，学校有8名学生参加市里的决赛，取得了包揽前6名的好成绩等。</p>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div id="copyright">
+				<ul>
+					<li>
+						<p>版权所有：北京信息管理学校&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通讯地址：海淀区西三环北路20号（紫竹桥桥北路东一招生办公室所在地）</p>
+					</li>
+					<li>
+						<p>邮政编码：100081&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：010-64239088 010-78234123</p>
+					</li>
+					<li>
+						<p>邮箱：zszx@qq.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京ICP备05021359号</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+		<link rel="stylesheet" href="css/js.css">
+		<script type="text/javascript">
+	// 设置为主页   
+	function SetHome(obj, vrl) {
+		try {
+			obj.style.behavior = 'url(#default#homepage)';
+			obj.setHomePage(vrl);
+		} catch(e) {
+			if(window.netscape) {
+					alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+				var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+				prefs.setCharPref('browser.startup.homepage', vrl);
+			} else {
+				alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入：" + vrl + "点击确定。");
+			}
+		}
+	}
+	// 加入收藏 兼容360和IE6   
+	function shoucang(sTitle, sURL) {
+		try {
+			window.external.addFavorite(sURL, sTitle);
+		} catch(e) {
+			try {
+				window.sidebar.addPanel(sTitle, sURL, "");
+			} catch(e) {
+				alert("加入收藏失败，请使用Ctrl+D进行添加");
+			}
+		}
+	}
+</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=1" width="960" height="20" frameborder="1" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+				<div class="subnav">
+					<div class="left">www.zszx.com</div>
+					<div class="right">
+						<a href="javascript:void(0)" onclick="SetHome(this,window.location)">设为首页</a>  
+                        <a href="javascript:void(0)" onclick="shoucang(document.title,window.location)">加入收藏</a>  
+					</div>
+				</div>
+				<img src="img/headerimg.png" />
+			</div>
+			<div id="nav">
+				<ul>
+					<li><a href="index.html">首&nbsp;页</a></li>
+					<li><a href="school.html">学校概况</a></li>
+					<li><a href="guide.html"  class="active">招生就业</a></li>
+					<li><a href="teach.html">教育园地</a></li>
+					<li><a href="science.html">科教园</a></li>
+					<li><a href="library.html">图书馆</a></li>
+					<li><a href="#">校园文化</a></li>
+					<li><a href="#">对外培训</a></li>
+					<li><a href="#">党群活动</a></li>
+				</ul>
+				<input type="text" value="搜索你想要的..." onfocus="if(value=='搜索你想要的...') {value=''}" onblur="if (value=='') {value='搜索你想要的...'}">
+                <select >
+                	<option value="1">培训</option>
+                	<option value="1">教学</option>
+                </select>
+                <button type="button">搜索</button>
+			</div>
+			<div id="main">
+				<div class="menu">
+					<div class="menu-title">
+						<h2>招生就业</h2>
+					</div>
+					<div class="menu-ul">
+						<ul>
+						<li><a href="#" class="menu-a-active">招生简章</a></li>
+						<li><a href="#">招生工作</a></li>
+						<li><a href="#">大学生创业</a></li>
+						<li><a href="#">企业岗位培训</a></li>
+					</ul>
+					</div>
+					<div class="tel">
+						<div class="h2"><h2>联系我们：</h2></div>
+						<p>QQ:2542890543</p>
+						<p>微信：zszx8954235</p>
+						<p>邮箱：zszx@qq.com</p>
+						<p>电话：010-64239088 010-78234123</p>
+						<p>通讯地址：海淀区西三环北路20号（紫竹桥桥北路东一招生办公室所在地</p>
+					</div>
+				</div>
+				<div class="content">
+					<div class="content-title">
+						<h2>招生简章</h2>
+						<span class="right">当前位置：招生就业-招生简章</span>
+					</div>
+<div class="jq22-container">
+	<div id="wrapper">
+		<div id="slider-wrap">
+			<ul id="slider">
+				<li><img src="img/lunbo-1.jpg" /></li>
+				<li><img src="img/lunbo-2.jpg" /></li>
+				<li><img src="img/lunbo-3.jpg" /></li>
+				<li><img src="img/lunbo-4.jpg" /></li>
+			</ul>
+			<!--controls-->
+			<div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+			<div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+		</div>
+	</div>
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="js/slide.js"></script>
+</div>
+                <div class="guide">
+                	<div class="title">
+						        <h3>招生简章</h3>
+					        </div>
+					<div class="box">
+					    	    <ul><li><a href="#">北京信息管理学校2018年3月招生简章</a><span>2018-03-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2017年9月招生简章</a><span>2017-09-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2017年3月招生简章</a><span>2017-03-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2016年9月招生简章</a><span>2016-09-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2016年3月招生简章</a><span>2016-03-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2015年9月招生简章</a><span>2015-09-01</span></li>
+					    	    </ul>
+					</div>
+                </div>
+                <div class="guide">
+                	<div class="title">
+						        <h3>招生计划</h3>
+					        </div>
+					<div class="box">
+					    	    <ul><li><a href="#">北京信息管理学校2018年3月招生计划</a><span>2018-03-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2017年9月招生计划</a><span>2017-09-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2017年3月招生计划</a><span>2017-03-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2016年9月招生计划</a><span>2016-09-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2016年3月招生计划</a><span>2016-03-01</span></li>
+					    	    <li><a href="#">北京信息管理学校2015年9月招生计划</a><span>2015-09-01</span></li>
+					    	    </ul>
+					</div>
+                </div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div id="copyright">
+				<ul>
+					<li>
+						<p>版权所有：北京信息管理学校&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通讯地址：海淀区西三环北路20号（紫竹桥桥北路东一招生办公室所在地）</p>
+					</li>
+					<li>
+						<p>邮政编码：100081&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：010-64239088 010-78234123</p>
+					</li>
+					<li>
+						<p>邮箱：zszx@qq.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京ICP备05021359号</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
